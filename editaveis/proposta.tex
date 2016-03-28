@@ -15,7 +15,7 @@
 	\begin{itemize}
 		\item \textbf{Utilização de Mapas}: O robô conhece o mapa onde realizará a navegação à priori, conhecendo os obstáculos e os caminhos possíveis. Possuindo essas informações, o robô irá traçar as rotas mais eficientes para chegar em seu objetivo.
 
-		\item \textbf{Localização Relativa em Grupos}: Está técnica utiliza a navegação simultânea de muitos robôs, cada robô sabe a posição relativa dos outros robôs, podendo calcular sua posição relativa.
+		\item \textbf{Localização Relativa em Grupos}: Esta técnica utiliza a navegação simultânea de muitos robôs, cada robô sabe a posição relativa dos outros robôs, podendo calcular sua posição relativa.
 
 		\item \textbf{Utilização de Pontos de Referência}: Conhecendo pontos de referência que estão distribuídos pelo mapa de navegação, o robô consegue calcular sua posição através da técnica de triangulação.
 
@@ -33,11 +33,13 @@
 	
 	A técnica de Odometria é muito utilizada em navegações curtas, em ambientes com o piso regular e plano. O grande problema desta técnica é a grande adição de erros a cada centímetro percorrido, por meio de derrapagens e falhas no giro das rodas. 
 
+	Desse modo, é fácil perceber que as técnicas possuem características que as adequam a diferentes contextos. Porem, a solução de um problema não precisa utilizar apenas uma delas, podendo integrar características de diferentes técnicas, desde que agregue valor a solução desenvolvida.
+
 \section{Problema de Pesquisa}
 
-	Sabe-se que todas as técnicas apresentadas acima possuem margens de erros, as quais podem trazer muitos problemas, dependendo do contexto de navegação trabalhado. A partir deste problema, o presente trabalho busca unir características importantes de algumas dessas técnicas para desenvolver um método de auto-localização em ambientes fechados com a menor margem de erro possível.
+	Sabe-se que todas as técnicas apresentadas acima possuem margens de erros, as quais podem trazer muitos problemas, dependendo do contexto de navegação trabalhado. A partir deste problema, o presente trabalho busca unir características importantes de algumas dessas técnicas para desenvolver um método eficiente de auto-localização em ambientes fechados, utilizando, como base, a técnica de mapeamento do ambiente e auto-localização simultâneos (conhecida como problema de SLAM).
 
-	A questão de pesquisa que será discutida durante este trabalho é \textit{"Quais técnicas de auto-localização podem se complementar para minimizar a margem de erro de seus resultados e como deve ser feita a integração dessas técnicas utilizando o Kit de Robótica Educacional da LEGO?"}.
+	A questão de pesquisa que será discutida durante este trabalho é \textit{"Quais técnicas de auto-localização podem se complementar para apoiar a resolução do problema de SLAM, minimizando as margens de erro durante a navegação, e como deve ser feita a integração dessas técnicas utilizando o Kit de Robótica Educacional da LEGO?"}.
 
 \section{Justificativa}
 
@@ -54,9 +56,17 @@
 	\subsection{Objetivos Gerais} % (fold)
 	\label{sub:objetivos_gerais}
 	
+		Desenvolver um algoritmo para resolução do problema SLAM utilizando o Kit de Robótica Educacional da \textit{LEGO}.
+
 	% subsection objetivos_gerais (end)
 
 	\subsection{Objetivos Específicos} % (fold)
 	\label{sub:objetivos_específicos}
+
+	\begin{itemize}
+		\item Resolução do problema de SLAM;
+		\item Integração de diferentes técnicas de auto-localização;
+		\item Garantia da qualidade da solução (Visão da Engenharia de Software). 
+	\end{itemize}
 	
 	% subsection objetivos_específicos (end)
