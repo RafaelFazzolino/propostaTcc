@@ -4,7 +4,7 @@
 
 \section{Contextualização}
 	
-	O nascimento da robótica se deu no contexto industrial, onde ferramentas autônomas foram desenvolvidas para executar atividades de forma repetitiva e incansável, maximizando a qualidade dos produtos produzidos e minimizando o custo e tempo para produção dos mesmos. A palavra robô é derivada da palavra \textit{robota}, de origem eslava, que significa \textit{trabalho forçado}. Enquanto a robótica se mantinha no contexto industrial, não havia grande necessidade de implementar robôs com autonomia em relação a sua mobilidade. A utilização de esteiras, por exemplo, era suficiente para solucionar o problema da locomoção dos robôs em chão de fábrica. Porém, com a ampliação das áreas de atuação destas ferramentas autônomas, surge a necessidade da autonomia relacionada a mobilidade das mesmas. (REFERENCIAR ESSE PARÁGRAFO TODO)
+	O nascimento da robótica se deu no contexto industrial, onde ferramentas autônomas foram desenvolvidas para executar atividades de forma repetitiva e incansável, maximizando a qualidade dos produtos produzidos e minimizando o custo e tempo para produção dos mesmos \cite{roboticaIndustrial}. Ainda segundo \cite{roboticaIndustrial}, a palavra robô é derivada da palavra \textit{robota}, de origem eslava, que significa \textit{trabalho forçado}, ou seja, robôs podem ser considerados ferramentas incansáveis que apoiam o trabalho humano. 
 
 	Segundo \cite{localizacaoEMapeamentoPaulo}, a autonomia de um robô é fortemente condicionada pela sua capacidade de perceber o ambiente de navegação, interagindo com o meio e realizando tarefas com o mínimo de precisão. Este mínimo, segundo \cite{localizacaoEMapeamentoPaulo}, seria a navegação sem colisão em obstáculos. 
 
@@ -27,46 +27,49 @@
 		 
 	\end{itemize}
 
-	As formas apresentadas anteriormente, para se trabalhar com auto-localização na robótica, possuem características únicas que as adequam para diferentes contextos de navegação. Por exemplo, a Utilização de Mapas é uma técnica bastante útil quando se está trabalhando com um ambiente conhecido e estático, porém, em ambientes mutáveis e não conhecidos, essa estratégia se torna um problema. A Localização Relativa em Grupos funciona muito bem quando a navegação envolve muitos robôs, a qual não necessita de conhecimento prévio do mapa. A Utilização de Pontos de Referência é uma técnica comumente utilizada, a qual é útil quando não se conhece o ambiente de navegação. Entretanto, os pontos de referência, nesse caso, precisam ser conhecidos. 
+	As formas apresentadas anteriormente, para se trabalhar com auto-localização, possuem características únicas que as adequam para diferentes contextos de navegação. Por exemplo, a Utilização de Mapas é uma técnica bastante útil quando se está trabalhando com um ambiente conhecido e estático, porém, em ambientes mutáveis e não conhecidos, essa estratégia se torna um problema. A Localização Relativa em Grupos funciona muito bem quando a navegação envolve muitos robôs, a qual não necessita de conhecimento prévio do mapa. A Utilização de Pontos de Referência é uma técnica comumente utilizada, a qual é útil quando não se conhece o ambiente de navegação. Entretanto, os pontos de referência, nesse caso, precisam ser conhecidos. 
 
 	Quando se tem ambientes abertos e amplos, a técnica de Localização Absoluta com GPS é a mais utilizada, porem sua margem de erro torna a navegação em ambientes pequenos ou fechados inviável. A Navegação com utilização de Bússulas garante um apoio muito útil para orientação do robô. Entretando, essa técnica gera problemas relacionados a interferências externas, como materiais eletromagnéticos próximos à bússula.
 	
 	A técnica de Odometria é muito utilizada em navegações curtas, em ambientes com o piso regular e plano. O grande problema desta técnica é adição de erros a cada centímetro percorrido, por meio de derrapagens e falhas no giro das rodas. 
 
-	Desse modo, é fácil perceber que as técnicas possuem características que as adequam a diferentes contextos. Porém, a solução de um problema não precisa utilizar apenas uma delas, podendo integrar características de diferentes técnicas, desde que agregue valor a solução desenvolvida. (REFERENCIAR ESSA AFIRMAÇÃO)
+	Desse modo, é fácil perceber que cada técnica possui características que se adaptam melhor para diferentes situações. Durante este trabalho, a situação atacada é a navegação autônoma de robôs simples e baratos, como os kits de robótica da LEGO. Os quais possuem poucas opções de sensores e características bem limitadas \cite{drawLegoRobot}.
 
 \section{Problema de Pesquisa}
 
-	Sabe-se que todas as técnicas apresentadas acima possuem margens de erros, as quais podem trazer muitos problemas, dependendo do contexto de navegação trabalhado (REFERENCIAR). Tomando como base essa colocação, o presente trabalho buscará unir características de algumas dessas técnicas para desenvolver um método \textbf{eficiente (CUIDADO)} de auto-localização em ambientes fechados. A intenção é tomar como base a técnica de mapeamento do ambiente e auto-localização simultâneos (conhecida como problema de SLAM \textbf{COLOCAR EM EXTENSO E REFERENCIAR}).
+	Todas as técnicas de auto-localização apresentadas na seção anterior já foram testadas, comparadas e refatoradas em diferentes contextos. Desde a navegação marítima até questões relacionadas a tecnologia aeroespacial \cite{localizacaoEMapeamentoPaulo}. Porém, sabe-se que, nestes contextos, o \textit{hardware} utilizado para navegação era de alta tecnologia, possuindo processadores de altíssimo desempenho e sensores bem precisos.
 
-	A questão de pesquisa que será discutida durante este trabalho é \textit{"Quais técnicas de auto-localização podem se complementar para apoiar a resolução do problema de SLAM, minimizando as margens de erro durante a navegação, e como deve ser feita a integração dessas técnicas utilizando o Kit de Robótica Educacional da LEGO?"}. \textbf{DUAS QUESTÕES DE PESQUISA, QUEBRAR EM DUAS OU FOCAR EM APENAS UMA???}
+	Já em um contexto educacional, a infraestrutura disponível nem sempre engloba os critérios necessários para aplicação das técnicas de auto-localização. Um exemplo disso é a utilização, por \cite{localizacaoEMapeamentoPaulo}, de uma câmera omnidirecional para obter informações sobre o ambiente. Alem da dificuldade de aquisição do \textit{hardware}, a complexidade em trabalhar com este tipo de análise inviabiliza a utilização da mesma em um sistema educacional onde o objetivo é ensinar programação a partir da robótica.
+
+	Desse modo, vê-se a necessidade da adaptação de técnicas de auto-localização para o contexto da Robótica Educacional, utilizando os kits de robótica \textit{Mindstorms} da LEGO. Onde a capacidade de processamento, a precisão dos sensores e dos atuadores é limitada. A intenção é tomar como base a técnica de mapeamento do ambiente e auto-localização simultâneos (conhecida como problema de SLAM - \textit{Simultaneous Location and Mapping}) \cite{slamProblem}.
+
+	A questão de pesquisa que será discutida durante este trabalho é \textit{"Como solucionar o problema de SLAM no contexto limitado da Robótica Educacional?"}.
 
 \section{Justificativa}
 
-	A utilização da Robótica como uma forma de ensinar programação em escolas e faculdades, a chamada Robótica Educacional, traz benefícios para o aluno. Conforme colocado pelos \textbf{autores [ref1] [ref2]}, alguns desses benefícios são: maior interesse pelos conteúdos estudados em aula, capacidade de trabalhar em grupo \textbf{E...}. A Universidade de Brasília utiliza esta abordagem de ensino/aprendizagem durante a disciplina de Introdução à Robótica Educacional, ministrada pelo professor Dr. Maurício Serrano. Na disciplina, são utilizados Kits de robótica da LEGO \textbf{(OLHAR COMO REFERENCIAE ESSES KITS LA NO DA CAROL)} para desenvolvimento de soluções dos problemas presentes em um tapete de missões. A organização da disciplina se inspira nos campeonatos de robótica, como \cite{ciber-rato} ou \cite{roboBulldozerIV}, por exemplo. Neste tipo de campeonado, a navegação é o quesito mais importante \textbf{(REFERENCIAR ISSO)}, a qual deve possuir a menor margem de erro possível para solucionar as missões. Desse modo, vê-se necessária a seleção e a integração de algumas técnicas de auto-localização para maximizar a precisão desta navegação.
-	
+	A utilização da Robótica como uma forma de ensinar programação em escolas e faculdades, a chamada Robótica Educacional, traz alguns benefícios para o aluno. Conforme colocado pelos autores \cite{teachingWithRoboticKit}, \cite{roboticEducationBasedLego}, \cite{evaluationRoboticEducationScale} e \cite{roboticaEducacionalAulasMatematica}, alguns desses benefícios são: maior interesse pelos conteúdos estudados em aula, capacidade de trabalhar em grupo, aplicação prática do conhecimento teórico e multidisciplinaridade. A Universidade de Brasília utiliza esta abordagem de ensino/aprendizagem durante a disciplina de Introdução à Robótica Educacional, ministrada pelo professor Dr. Maurício Serrano. Na disciplina, são utilizados Kits de robótica Lego Mindstorms \textbf{(OLHAR COMO REFERENCIAE ESSES KITS LA NO DA CAROL)} para desenvolvimento de soluções dos problemas presentes em um tapete de missões. A organização da disciplina se inspira nos campeonatos de robótica, como \cite{ciber-rato} ou \cite{roboBulldozerIV}, por exemplo. Neste tipo de campeonado, a navegação é o quesito mais importante \cite{ciber-rato}, a qual deve possuir a menor margem de erro possível para solucionar as missões.
 
-	%Levando em consideração a primeira técnica apresentada, a utilização de mapas, \cite{localizacaoEMapeamentoPaulo} mostra a possibilidade do próprio robô construir o mapa do ambiente e utilizá-lo para navegação, simultaneamente. Este problema é conhecido como problema SLAM (da sigla em inglês), que consiste em um robô autônomo iniciar a navegação em uma localização desconhecida e  ambiente desconhecido, construindo um mapa deste ambiente de forma incremental e utilizando-o para calcular sua localização atual.
-
-	%A utilização do SLAM é bastante útil quando não exite o conhecimento prévio do ambiente onde se deseja navegar. Segundo \cite{localizacaoEMapeamentoPaulo}, a resolução do problema SLAM pode ocorrer a partir de diferentes técnicas.
-
+	As missões utilizadas durante a disciplina são referentes a problemas recorrentes no contexto da robótica mundial. Porém, a solução dos mesmos é uma adaptação das técnicas existentes para o contexto limitado da disciplina, onde são utilizados robôs e sensores presentes no kit \textit{Mindstorms} da Lego. Esta adaptação exige um conhecimento amplo sobre a técnica, para que o estudante possa identificar características relevantes e adaptá-las de acordo com o \textit{hardware} disponível.  
 
 	\section{Objetivos}
 
 	\subsection{Objetivos Gerais} % (fold)
 	\label{sub:objetivos_gerais}
 	
-		Desenvolver um algoritmo para resolução do problema SLAM utilizando o Kit de Robótica Educacional da \textit{LEGO}. \textit{OBS: O objetivo será mais focado no desenvolvimento ou em investigação e pesquisa??}
+		Adaptar técnicas de resolução do problema de SLAM para o contexto da Robótica Educacional, utilizando os kits de robótica \textit{Mindstorms} da Lego.
 
 	% subsection objetivos_gerais (end)
 
 	\subsection{Objetivos Específicos} % (fold)
 	\label{sub:objetivos_específicos}
 
+		O Objetivo Geral pode ser dividido em quatro objetivos específicos, que vão desde a solução do problema até a adaptação da mesma pro contexto educacional, como são apresentados a seguir.
+		 
 	\begin{itemize}
 		\item Resolução do problema de SLAM;
 		\item Integração de diferentes técnicas de auto-localização;
-		\item Garantia da qualidade da solução (Visão da Engenharia de Software). 
+		\item Garantia da qualidade da solução (Visão da Engenharia de Software);
+		\item Simplificação da solução (Contexto educacional). 
 	\end{itemize}
 	
 	% subsection objetivos_específicos (end)
