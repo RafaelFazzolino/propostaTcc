@@ -41,15 +41,15 @@
 
 	Já em um contexto educacional, a infraestrutura disponível nem sempre engloba os critérios necessários para aplicação das técnicas de auto-localização. Um exemplo disso é a utilização, por \cite{localizacaoEMapeamentoPaulo}, de uma câmera omnidirecional para obter informações sobre o ambiente. Alem da dificuldade de aquisição do \textit{hardware}, a complexidade em trabalhar com este tipo de análise inviabiliza a utilização da mesma em um sistema educacional onde o objetivo é ensinar programação a partir da robótica.
 
-	Desse modo, vê-se a necessidade da adaptação de técnicas de auto-localização para o contexto da Robótica Educacional, utilizando os kits de robótica \textit{Mindstorms} da LEGO. Onde a capacidade de processamento, a precisão dos sensores e dos atuadores é limitada. A intenção é tomar como base a técnica de mapeamento do ambiente e auto-localização simultâneos (conhecida como problema de SLAM - \textit{Simultaneous Location and Mapping}) \cite{slamProblem}.
+	Desse modo, vê-se a necessidade da adaptação de técnicas de auto-localização para o contexto da Robótica Educacional, utilizando os kits de robótica \textit{Mindstorms} da LEGO. Onde a capacidade de processamento e a precisão dos sensores e dos atuadores é limitada. A intenção é tomar como base a técnica de mapeamento do ambiente e auto-localização simultâneos (conhecida como problema de SLAM - \textit{Simultaneous Location and Mapping}) \cite{slamProblem}.
 
 	A questão de pesquisa que será discutida durante este trabalho é \textit{"Como solucionar o problema de SLAM no contexto limitado da Robótica Educacional?"}.
 
 \section{Justificativa}
 
-	A utilização da Robótica como uma forma de ensinar programação em escolas e faculdades, a chamada Robótica Educacional, traz alguns benefícios para o aluno. Conforme colocado pelos autores \cite{teachingWithRoboticKit}, \cite{roboticEducationBasedLego}, \cite{roboticaEducacionalAulasMatematica} e \cite{evaluationRoboticEducationScale}, alguns desses benefícios são: maior interesse pelos conteúdos estudados em aula, capacidade de trabalhar em grupo, aplicação prática do conhecimento teórico e multidisciplinaridade. A Universidade de Brasília utiliza esta abordagem de ensino/aprendizagem durante a disciplina de Introdução à Robótica Educacional, ministrada pelo professor Dr. Maurício Serrano. Na disciplina, são utilizados Kits de robótica Mindstorms, da Lego, para desenvolvimento de soluções dos problemas presentes em um tapete de missões. A organização da disciplina se inspira nos campeonatos de robótica, como \cite{ciber-rato} ou \cite{roboBulldozerIV}, por exemplo. Neste tipo de campeonado, a navegação é o quesito mais importante \cite{ciber-rato}, a qual deve possuir a menor margem de erro possível para solucionar as missões.
+	A utilização da Robótica como uma forma de ensinar programação em escolas e faculdades, a chamada Robótica Educacional, \cite{roboticaEducacionalAulasMatematica}, traz alguns benefícios para o aluno. Conforme colocado pelos autores \cite{teachingWithRoboticKit}, \cite{roboticEducationBasedLego}, \cite{roboticaEducacionalAulasMatematica} e \cite{evaluationRoboticEducationScale}, alguns desses benefícios são: maior interesse pelos conteúdos estudados em aula, capacidade de trabalhar em grupo, aplicação prática do conhecimento teórico e multidisciplinaridade. A Universidade de Brasília utiliza esta abordagem de ensino/aprendizagem durante a disciplina de Introdução à Robótica Educacional, ministrada pelo professor Dr. Maurício Serrano. Na disciplina, são utilizados os Kits de robótica Mindstorms, da Lego, para desenvolvimento de soluções dos problemas presentes em um tapete de missões. A organização da disciplina se inspira nos campeonatos de robótica, como \cite{ciber-rato} ou \cite{roboBulldozerIV}, por exemplo. Neste tipo de campeonado, a navegação é o quesito mais importante \cite{ciber-rato}, a qual deve possuir a menor margem de erro possível para solucionar as missões.
 
-	As missões utilizadas durante a disciplina são referentes a problemas recorrentes no contexto da robótica mundial. Porém, a solução dos mesmos é uma adaptação das técnicas existentes para o contexto limitado da disciplina, onde são utilizadas ferramentas presentes no kit \textit{Mindstorms} da Lego. Esta adaptação exige um conhecimento amplo sobre a técnica, para que o estudante possa identificar características relevantes e adaptá-las de acordo com o \textit{hardware} disponível.
+	As missões utilizadas durante a disciplina são referentes a problemas recorrentes no contexto da robótica mundial. Porém, a solução dos mesmos é uma adaptação das técnicas existentes para o contexto limitado da disciplina, onde são utilizadas apenas ferramentas presentes no kit \textit{Mindstorms} da Lego. Esta adaptação exige um conhecimento amplo sobre a técnica, para que o estudante possa identificar características relevantes e adaptá-las de acordo com o \textit{hardware} disponível.
 
 	%Boa parte dos problemas encontrados pelos estudantes durante a realização de uma missão da disciplina se refere a auto-localização do robô. Desse modo, a identificação de uma técnica que solucione o problema de auto-localização utilizando as ferramentas disponíveis na disciplina trará novas opções aos alunos, que serão inseridos no contexto do problema de SLAM.
 
@@ -69,9 +69,8 @@
 		 
 	\begin{itemize}
 		\item Resolução do problema de SLAM;
-		\item Integração de diferentes técnicas de auto-localização;
-		\item Garantia da qualidade da solução (Visão da Engenharia de Software);
-		\item Simplificação da solução (Contexto educacional). 
+		\item Adaptação pro contexto educacional;
+		\item Garantia da qualidade da solução (Visão da Engenharia de Software); 
 	\end{itemize}
 	
 	% subsection objetivos_específicos (end)
